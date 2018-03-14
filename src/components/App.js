@@ -5,7 +5,7 @@ import '../styles/App.css'
 export default class App extends Component {
   render () {
     return (
-      <div className='App'>
+      <div className='app-main'>
         <header>
           <h2 className='header-title'>novilance</h2>
         </header>
