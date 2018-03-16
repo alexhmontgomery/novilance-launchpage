@@ -13,7 +13,7 @@ export default class App extends Component {
           <h1 className='banner'>COMING SOON</h1>
           <div id='breakline' />
           <div className='tagline-container'>
-            <h3>Learn by doing. Develop new skills, build "real world" experience, and get paid doing it through freelance work.</h3>
+            <h3 className='tagline'>Learn by doing. Develop new skills, build "real world" experience, and get paid doing it through freelance work.</h3>
           </div>
           <SignUpForm />
           <p>Site is under construction -- sign-up to receive an invitation</p>

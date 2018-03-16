@@ -24,9 +24,10 @@ export default class SignUpForm extends Component {
 
   handleSubmitEmail (event) {
     event.preventDefault()
-    // this.setState({
-    //   loading: true
-    // })
+
+    this.setState({
+      loading: false
+    })
     console.log(this.state)
 
     fetch(`${config.server}/launchinquiry`, {
@@ -39,11 +40,11 @@ export default class SignUpForm extends Component {
       }
     })
     .then(r => r.json())
+    .then(this.setState({
+      loading: false
+    }))
     .then(json => {
       console.log(json)
-      // this.setState({
-      //   loading: false
-      // })
       if (json.success === true) {
         this.setState({
           message: 'Thank you! We are so excited to show you what we are building!'
@@ -65,8 +66,19 @@ export default class SignUpForm extends Component {
               <p>{this.state.message}</p>
             </div>
           }
-          <input placeholder='Your email address' type='email' name='email' onChange={this.handleInputChange} value={this.state.email} />
-          <button type='submit'>GET AN EARLY INVITATION</button>
+          <div>
+            <input className='email-input' placeholder='Your email address' type='email' name='email' onChange={this.handleInputChange} value={this.state.email} />
+          </div>
+          <div>
+            {
+              !this.state.loading &&
+              <button className='submit-btn' type='submit'>GET AN EARLY INVITATION</button>
+            }
+            {
+              this.state.loading &&
+              <button className='submit-btn'><i id='loading-icon' className='fa fa-spin fa-sync' /> SUBMITTING </button>
+            }
+          </div>
         </form>
       </div>
     )
