@@ -13,7 +13,6 @@ body {
   background-image: url('../images/novilance-background-2.jpg');
   background-position: center;
   background-size: auto 100%;
-  /* background-repeat: no-repeat; */
 }
 
 .app-main {
@@ -23,7 +22,8 @@ body {
 }
 
 .header-title {
-  font-size: 2em;
+  font-size: 2.25em;
+  font-weight: 800;
 }
 
 header {
@@ -55,9 +55,17 @@ header h2 {
   margin: 1em 25% 1em 25%;
 }
 
+.tagline-container {
+  padding-bottom: 0.75em;
+}
+
 .tagline {
-  font-family: 'Cabin Condensed', sans-serif;
-  font-size: 1em;
+  /* font-family: 'Cabin Condensed', sans-serif; */
+  font-size: 0.95em;
+}
+
+.form-interior-container {
+  padding: 4px 0;
 }
 
 .email-input {
@@ -66,18 +74,33 @@ header h2 {
   font-size: 0.9em;
 }
 
+.input-message {
+  color: #6C7A89;
+  font-size: 0.9em;
+}
+
+.error-message {
+  color: #D24D57;
+  font-size: 0.9em;
+}
+
 #loading-icon {
   margin-right: 5px;
 }
 
 .submit-btn {
-  margin-top: 10px;
+  margin-top: 5px;
   border: 1px solid whitesmoke;
   background: none;
   color: whitesmoke;
   width: 100%;
   padding: 10px 3px;
   font-size: 1.0em;
+}
+
+.instructions {
+  font-family: 'Cabin Condensed', sans-serif;
+  font-size: 0.9em;
 }
 
 /* -- Responsive Breakpoints -- */

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import config from '../config/main'
+import Axios from 'axios'
 
 export default class SignUpForm extends Component {
   constructor (props) {
@@ -7,7 +8,8 @@ export default class SignUpForm extends Component {
     this.state = {
       email: '',
       message: '',
-      loading: false
+      loading: false,
+      error: false
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmitEmail = this.handleSubmitEmail.bind(this)
@@ -25,59 +27,70 @@ export default class SignUpForm extends Component {
   handleSubmitEmail (event) {
     event.preventDefault()
 
-    this.setState({
-      loading: false
-    })
-    console.log(this.state)
-
-    fetch(`${config.server}/launchinquiry`, {
-      method: 'POST',
-      body: JSON.stringify({
+    this.setState({ loading: true }, () => {
+      Axios.post(`${config.server}/launchRegister`, {
         email: this.state.email
-      }),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(r => r.json())
-    .then(this.setState({
-      loading: false
-    }))
-    .then(json => {
-      console.log(json)
-      if (json.success === true) {
+      })
+      .then(res => {
+        console.log(res)
+        if (res.data.success) {
+          this.setState({
+            loading: false,
+            error: false,
+            message: "Thank you. We're so excited to show you what we are building!"
+          })
+        } else {
+          this.setState({
+            loading: false,
+            error: true,
+            message: res.data.error.errors[0].message
+          })
+        }
+      })
+      .catch(err => {
+        console.log(err)
         this.setState({
-          message: 'Thank you! We are so excited to show you what we are building!'
+          error: true,
+          loading: false,
+          message: err.message || err.data.error.errors[0].message
         })
-      } else {
-        this.setState({
-          message: json.message || json.error.errors[0].message
-        })
-      }
+      })
     })
   }
 
   render () {
     return (
-      <div className='Form'>
+      <div className='form-box'>
         <form onSubmit={this.handleSubmitEmail}>
-          {this.state.message &&
-            <div>
-              <p>{this.state.message}</p>
+          {this.state.message && !this.state.error &&
+            <div className='form-interior-container'>
+              <p className='input-message'><em>{this.state.message}</em></p>
             </div>
           }
-          <div>
-            <input className='email-input' placeholder='Your email address' type='email' name='email' onChange={this.handleInputChange} value={this.state.email} />
+
+          <div className='form-interior-container'>
+            <input className='email-input' placeholder='Your email address' name='email' onChange={this.handleInputChange} value={this.state.email} />
           </div>
-          <div>
+
+          {this.state.message && this.state.error &&
+            <div className='form-interior-container'>
+              <p className='error-message'><em>Whoops, it looks like there was a problem.</em></p>
+              <p className='error-message'><em>{this.state.message}</em></p>
+            </div>
+          }
+
+          <div className='form-interior-container'>
             {
               !this.state.loading &&
               <button className='submit-btn' type='submit'>GET AN EARLY INVITATION</button>
             }
             {
               this.state.loading &&
-              <button className='submit-btn'><i id='loading-icon' className='fa fa-spin fa-sync' /> SUBMITTING </button>
+              <button className='submit-btn'><i id='loading-icon' className='fa fa-spinner fa-spin' /><em>  SUBMITTING</em></button>
             }
+          </div>
+          <div className='form-interior-container'>
+            <p className='instructions'>Site is under construction - sign-up to receive an invitation</p>
           </div>
         </form>
       </div>
