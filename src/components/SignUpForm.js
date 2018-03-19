@@ -29,6 +29,7 @@ export default class SignUpForm extends Component {
 
     this.setState({ loading: true }, () => {
       Axios.post('https://novilance-api.herokuapp.com/launchRegister', {
+        headers: {'Access-Control-Allow-Origin': '*'},
         email: this.state.email
       })
       .then(res => {
