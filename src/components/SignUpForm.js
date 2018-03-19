@@ -28,7 +28,7 @@ export default class SignUpForm extends Component {
     event.preventDefault()
 
     this.setState({ loading: true }, () => {
-      Axios.post(`${config.server}/launchRegister`, {
+      Axios.post('https://novilance-api.herokuapp.com/launchRegister', {
         email: this.state.email
       })
       .then(res => {
