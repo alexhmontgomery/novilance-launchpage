@@ -37,7 +37,7 @@ export default class SignUpForm extends Component {
           this.setState({
             loading: false,
             error: false,
-            message: "Thank you. We're so excited to show you what we are building!"
+            message: res.data.message
           })
         } else {
           this.setState({
@@ -69,7 +69,7 @@ export default class SignUpForm extends Component {
           }
 
           <div className='form-interior-container'>
-            <input className='email-input' placeholder='Your email address' name='email' onChange={this.handleInputChange} value={this.state.email} />
+            <input className='email-input' placeholder='Your email address' name='email' type='email' onChange={this.handleInputChange} value={this.state.email} />
           </div>
 
           {this.state.message && this.state.error &&
@@ -86,7 +86,7 @@ export default class SignUpForm extends Component {
             }
             {
               this.state.loading &&
-              <button className='submit-btn'><i id='loading-icon' className='fa fa-spinner fa-spin' /><em>  SUBMITTING</em></button>
+              <button className='submit-btn'><i id='loading-icon' className='fa fa-spinner fa-spin' />  SUBMITTING</button>
             }
           </div>
           <div className='form-interior-container'>

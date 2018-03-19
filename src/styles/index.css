@@ -21,26 +21,27 @@ body {
   min-height: 100vh;
 }
 
-.header-title {
-  font-size: 2.25em;
-  font-weight: 800;
-}
-
 header {
   text-align: center;
   padding: 10px 20px;
 }
 
-header h2 {
-  font-size: 3.5em;
-  font-weight: 300;
+.header-title {
+  font-size: 2.5em;
+  font-weight: 500;
   letter-spacing: 1px;
 }
 
 .content-container {
   margin: 15vh 0 0 0;
-  padding: 0.5em;
   text-align: center;
+  /* border: 1px solid red; */
+}
+
+.interior-container {
+  padding: 0 0.5em 0.5em 0.5em;
+  text-align: center;
+  /* border: 1px solid blue; */
 }
 
 .banner {
@@ -50,9 +51,8 @@ header h2 {
 }
 
 #breakline {
-  border: 1px solid whitesmoke;
-  background-color: whitesmoke;
-  margin: 1em 25% 1em 25%;
+  border-top: 1px solid whitesmoke;
+  margin: 0.5em 20% 1em 20%;
 }
 
 .tagline-container {
@@ -60,7 +60,6 @@ header h2 {
 }
 
 .tagline {
-  /* font-family: 'Cabin Condensed', sans-serif; */
   font-size: 0.95em;
 }
 
@@ -90,7 +89,7 @@ header h2 {
 
 .submit-btn {
   margin-top: 5px;
-  border: 1px solid whitesmoke;
+  border: 2px solid whitesmoke;
   background: none;
   color: whitesmoke;
   width: 100%;
@@ -103,101 +102,128 @@ header h2 {
   font-size: 0.9em;
 }
 
+
 /* -- Responsive Breakpoints -- */
-@media only screen and (min-device-width : 768px) {
-  * {
-    box-sizing: border-box;
-    margin: 0 auto;
-    font-family: 'Cabin', sans-serif;
-  }
 
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-image: url('../images/novilance-background-2.jpg');
-    background-size: cover;
-  }
 
-  .app-main {
-    color: whitesmoke;
-  }
-
-  header {
-    text-align: right;
-    padding: 10px 20px;
-  }
-
-  header h2 {
-    font-size: 3.5em;
-    font-weight: 300;
-    letter-spacing: 1px;
-  }
-
-  .content-container {
-    margin: 20vh 20% 5vh 20%;
-    text-align: center;
-    border: 2px solid red;
-  }
-
+@media only screen and (min-device-width: 300px) and (max-device-width: 340px) {
   .banner {
-    font-size: 5em;
-    font-weight: 100;
-    letter-spacing: 1px;
-  }
-
-  #breakline {
-    border: 1px solid whitesmoke;
-    background-color: whitesmoke;
-    margin: 1em 25% 1em 25%;
+    font-size: 2.2em;
   }
 }
 
-@media only screen and (min-device-width : 1224px) {
-  * {
-    box-sizing: border-box;
-    margin: 0 auto;
-    font-family: 'Cabin', sans-serif;
-  }
 
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-image: url('../images/novilance-background-2.jpg');
-    background-size: cover;
-  }
-
-  .app-main {
-    color: whitesmoke;
-  }
-
+@media only screen and (min-device-width : 768px) {
   header {
     text-align: right;
-    padding: 10px 20px;
   }
 
-  header h2 {
-    font-size: 3.5em;
-    font-weight: 300;
-    letter-spacing: 1px;
+  .header-title {
+    font-size: 3.25em;
   }
 
   .content-container {
-    margin: 20vh 20% 5vh 20%;
-    text-align: center;
-    border: 2px solid red;
+    margin: 22vh 0 5vh 0;
+  }
+
+  .interior-container {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .banner {
+    font-size: 4em;
+  }
+
+  .tagline {
+    font-size: 1.1em;
+  }
+
+  .form-interior-container {
+    padding: 7px 0;
+  }
+
+  .email-input, .input-message, .error-message {
+    font-size: 1em;
+  }
+
+  .submit-btn {
+    font-size: 1.1em;
+  }
+
+  .instructions {
+    font-size: 1.1em;
+  }
+}
+
+
+@media only screen and (min-device-width : 1024px) {
+  body {
+    background-size: cover;
+  }
+
+  .content-container {
+    margin: 17vh 0 5vh 0;
+  }
+
+  .interior-container {
+    margin-left: 20%;
+    margin-right: 20%;
   }
 
   .banner {
     font-size: 5em;
-    font-weight: 100;
-    letter-spacing: 1px;
   }
 
-  #breakline {
-    border: 1px solid whitesmoke;
-    background-color: whitesmoke;
-    margin: 1em 25% 1em 25%;
+  .tagline {
+    font-size: 1.2em;
+  }
+
+  .form-interior-container {
+    padding: 7px 0;
+  }
+
+  .email-input, .input-message, .error-message {
+    font-size: 1.1em;
+  }
+
+  .submit-btn {
+    font-size: 1.1em;
+  }
+
+  .instructions {
+    font-size: 1.1em;
+  }
+}
+
+
+@media only screen and (min-device-width : 1224px) {
+  .header-title {
+    font-size: 3.5em;
+  }
+
+  .interior-container {
+    margin-left: 28%;
+    margin-right: 28%;
+  }
+
+  .banner {
+    font-size: 5em;
+  }
+}
+
+
+@media only screen and (min-device-width : 1800px) {
+  .header-title {
+    font-size: 3.5em;
+  }
+
+  .interior-container {
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+
+  .banner {
+    font-size: 5em;
   }
 }
