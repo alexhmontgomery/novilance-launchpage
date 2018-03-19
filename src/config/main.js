@@ -1,5 +1,5 @@
 const config = {
-  'server': 'http://0.0.0.0:5000'
+  'server': 'https://novilance-api.herokuapp.com/'
 }
 
 export default config
