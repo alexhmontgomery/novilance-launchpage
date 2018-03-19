@@ -29,7 +29,10 @@ export default class SignUpForm extends Component {
 
     this.setState({ loading: true }, () => {
       Axios.post('https://novilance-api.herokuapp.com/launchRegister', {
-        headers: {'Access-Control-Allow-Origin': '*'},
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
         email: this.state.email
       })
       .then(res => {
@@ -62,8 +65,6 @@ export default class SignUpForm extends Component {
   render () {
     return (
       <div className='form-box'>
-        <form onSubmit={this.handleSubmitEmail}>
-          <p>Server address is: {config.server}</p>
           {this.state.message && !this.state.error &&
             <div className='form-interior-container'>
               <p className='input-message'><em>{this.state.message}</em></p>
