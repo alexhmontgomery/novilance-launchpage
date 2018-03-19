@@ -62,6 +62,7 @@ export default class SignUpForm extends Component {
     return (
       <div className='form-box'>
         <form onSubmit={this.handleSubmitEmail}>
+          <p>Server address is: {config.server}</p>
           {this.state.message && !this.state.error &&
             <div className='form-interior-container'>
               <p className='input-message'><em>{this.state.message}</em></p>
