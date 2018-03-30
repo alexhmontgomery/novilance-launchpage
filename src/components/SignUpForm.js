@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import config from '../config/main'
+// import config from '../config/main'
 import Axios from 'axios'
 
 export default class SignUpForm extends Component {
@@ -28,7 +28,7 @@ export default class SignUpForm extends Component {
     event.preventDefault()
 
     this.setState({ loading: true }, () => {
-      Axios.post('https://novilance-api.herokuapp.com/launchRegister', {
+      Axios.post('http://api.novilance.com/launchRegister', {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -36,7 +36,6 @@ export default class SignUpForm extends Component {
         email: this.state.email
       })
       .then(res => {
-        console.log(res)
         if (res.data.success) {
           this.setState({
             loading: false,
@@ -52,7 +51,6 @@ export default class SignUpForm extends Component {
         }
       })
       .catch(err => {
-        console.log(err)
         this.setState({
           error: true,
           loading: false,
@@ -78,7 +76,7 @@ export default class SignUpForm extends Component {
 
           {this.state.message && this.state.error &&
             <div className='form-interior-container'>
-              <p className='error-message'><em>Whoops, it looks like there was a problem.</em></p>
+              <p className='error-message'><em>Oops, it looks like there was a problem.</em></p>
               <p className='error-message'><em>{this.state.message}</em></p>
             </div>
           }
@@ -94,7 +92,7 @@ export default class SignUpForm extends Component {
             }
           </div>
           <div className='form-interior-container'>
-            <p className='instructions'>Site is under construction - sign-up to receive an invitation</p>
+            <p className='instructions'>Site is under construction - sign-up to receive an invitation!</p>
           </div>
         </form>
       </div>

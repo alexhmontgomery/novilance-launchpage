@@ -6,6 +6,10 @@
   font-family: 'Cabin', sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -16,7 +20,7 @@ body {
 }
 
 .app-main {
-  color: whitesmoke;
+  color: white;
   padding: 0.75em;
   min-height: 100vh;
 }
@@ -51,7 +55,7 @@ header {
 }
 
 #breakline {
-  border-top: 1px solid whitesmoke;
+  border-top: 1px solid white;
   margin: 0.5em 20% 1em 20%;
 }
 
@@ -61,6 +65,7 @@ header {
 
 .tagline {
   font-size: 0.95em;
+  letter-spacing: 0.75px;
 }
 
 .form-interior-container {
@@ -69,18 +74,23 @@ header {
 
 .email-input {
   width: 100%;
-  padding: 5px 5px;
+  padding: 10px;
   font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  letter-spacing: 0.75px;
 }
 
 .input-message {
   color: #6C7A89;
   font-size: 0.9em;
+  letter-spacing: 0.5px;
 }
 
 .error-message {
   color: #D24D57;
   font-size: 0.9em;
+  letter-spacing: 0.5px;
 }
 
 #loading-icon {
@@ -89,17 +99,23 @@ header {
 
 .submit-btn {
   margin-top: 5px;
-  border: 2px solid whitesmoke;
+  border: 2px solid white;
   background: none;
-  color: whitesmoke;
+  color: white;
   width: 100%;
   padding: 10px 3px;
   font-size: 1.0em;
 }
 
+.submit-btn:hover {
+  background-color: white;
+  color: #333;
+}
+
 .instructions {
   font-family: 'Cabin Condensed', sans-serif;
   font-size: 0.9em;
+  letter-spacing: 0.75px;
 }
 
 
